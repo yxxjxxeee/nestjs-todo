@@ -46,7 +46,7 @@ export class TodosController {
   @ResponseMessage('성공적으로 할 일을 수정했습니다.')
   async update(@Param('id') id: number, @Body() updateTodoDto: UpdateTodoDto) {
     const updatedTodo = await this.todosService.update(id, updateTodoDto);
-    return { data: updatedTodo };
+    return updatedTodo;
   }
 
   @Delete(':id')
