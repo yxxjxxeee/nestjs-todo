@@ -3,7 +3,6 @@ import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
 import { PrismaService } from 'src/prisma.service';
 import { Todo } from '@prisma/client';
-import { title } from 'process';
 
 @Injectable()
 export class TodosService {
