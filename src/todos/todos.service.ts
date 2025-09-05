@@ -24,7 +24,7 @@ export class TodosService {
   async findOne(id: number): Promise<Todo> {
     const todo = await this.prisma.todo.findUnique({ where: { id } });
     if (!todo) {
-      throw new NotFoundException(`id가 ${id}인 할 일이 존재하지 않습니다.`);
+      throw new NotFoundException(`ID가 ${id}인 할 일이 존재하지 않습니다.`);
     }
     return todo;
   }

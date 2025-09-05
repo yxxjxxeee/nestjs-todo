@@ -16,9 +16,9 @@ const badRequestExample = {
 
 // 실패 응답 (Not Found)
 const notFoundExample = {
-  statusCode: 404,
-  message: '할 일이 존재하지 않습니다.',
+  message: 'ID가 {id}인 할 일이 존재하지 않습니다.',
   error: 'Not Found',
+  statusCode: 404,
 };
 
 // 성공 응답 (단일 데이터)
