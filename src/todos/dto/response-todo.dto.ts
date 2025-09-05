@@ -4,6 +4,14 @@ import { Todo } from '@prisma/client';
 export class ResponseTodoDto implements Todo {
   @ApiProperty({
     required: true,
+    type: Number,
+    description: '할 일 id입니다.',
+    example: 1,
+  })
+  id: number;
+
+  @ApiProperty({
+    required: true,
     type: String,
     description: '할 일 제목입니다.',
     example: '예시 할 일 제목입니다.',
@@ -21,14 +29,6 @@ export class ResponseTodoDto implements Todo {
     default: false,
   })
   isDone: boolean;
-
-  @ApiProperty({
-    required: true,
-    type: Number,
-    description: '할 일 id입니다.',
-    example: 1,
-  })
-  id: number;
 
   @ApiProperty({
     required: true,
