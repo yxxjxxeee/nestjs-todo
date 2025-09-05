@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
 import { PrismaService } from 'src/prisma.service';
@@ -21,13 +21,16 @@ export class TodosService {
     return this.prisma.todo.findMany();
   }
 
-  async findOne(id: number): Promise<Todo | null> {
-    return this.prisma.todo.findUnique({
-      where: { id },
-    });
+  async findOne(id: number): Promise<Todo> {
+    const todo = await this.prisma.todo.findUnique({ where: { id } });
+    if (!todo) {
+      throw new NotFoundException(`id가 ${id}인 할 일이 존재하지 않습니다.`);
+    }
+    return todo;
   }
 
   async update(id: number, updateTodo: UpdateTodoDto): Promise<Todo> {
+    await this.findOne(id);
     return this.prisma.todo.update({
       where: { id },
       data: {
@@ -38,6 +41,7 @@ export class TodosService {
   }
 
   async remove(id: number): Promise<Todo> {
+    await this.findOne(id);
     return this.prisma.todo.delete({
       where: { id },
     });
