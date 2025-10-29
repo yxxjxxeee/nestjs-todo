@@ -1,10 +1,5 @@
 import { applyDecorators, Type } from '@nestjs/common';
-import {
-  ApiExtraModels,
-  ApiOperation,
-  ApiResponse,
-  getSchemaPath,
-} from '@nestjs/swagger';
+import { ApiExtraModels, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { ResponseTodoDto } from './dto/response-todo.dto';
 
 // 실패 응답 (Bad Request)

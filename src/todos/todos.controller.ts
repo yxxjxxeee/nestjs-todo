@@ -14,13 +14,7 @@ import { TodosService } from './todos.service';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
 import { ResponseTodoDto } from './dto/response-todo.dto';
-import {
-  ApiExtraModels,
-  ApiNoContentResponse,
-  ApiOperation,
-  ApiResponse,
-  ApiTags,
-} from '@nestjs/swagger';
+import { ApiExtraModels, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { ApiTodos } from './todos.swagger';
 
 @ApiTags('todos')
